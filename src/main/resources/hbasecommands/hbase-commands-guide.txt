@@ -1,0 +1,36 @@
+#Open Hbase Shell
+hbase shell
+
+#Create Table
+create 'table_name', 'personal', 'professional'
+
+#List stuff
+list
+
+#Disable
+disable 'table_name'
+
+#Drop
+drop 'table_name'
+
+#Get a row
+get 'table_name', 'key',{COLUMN => 'family_name'}
+
+#Add Data
+put 'table_name', 'key1', 'personal:a', 'value1'
+put 'table_name', 'key2', 'personal:a', 'value2'
+put 'table_name', 'key1', 'personal:a', 'value1-2'
+put 'table_name', 'key1', 'professional:b', 'value1'
+
+#Clear Hbase Values
+truncate 'table_name'
+
+#scan table
+scan 'table_name'
+scan 'table_name', {ROWPREFIXFILTER =>"key1", VERSIONS => 1000}
+scan 'table_name', {ROWPREFIXFILTER =>"key",COLUMN =>'family_name:qualifier', VERSIONS => 1000}
+
+#delete
+deleteall 'table_name', 'key'
+
+
